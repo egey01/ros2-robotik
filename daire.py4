@@ -1,0 +1,32 @@
+import rclpy
+from rclpy.node import Node
+from geometry_msgs.msg import Twist
+
+
+class DaireCizici(Node):
+    def __init__(self):
+        super().__init__('daire_cizici')
+        self.publisher = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
+        self.timer = self.create_timer(0.1, self.hareket_et)
+        self.get_logger().info('Daire çizici başladı!')
+
+    def hareket_et(self):
+        mesaj = Twist()
+        mesaj.linear.x = 2.0	
+        mesaj.angular.z = -2.0
+        self.publisher.publish(mesaj)
+
+
+def main():
+    rclpy.init()
+    node = DaireCizici()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    node.destroy_node()
+    rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
