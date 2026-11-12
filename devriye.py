@@ -20,9 +20,7 @@ class HedefeGidici(Node):
         self.publisher = self.create_publisher(Twist,'/turtle1/cmd_vel',10)
         self.hedef_no = 0
         self.tur_sayısı = 0
-        if self.hedef_no >= len(ROTA):
-            mesaj = Twist()
-            return
+        
         
     def konum_geldi(self, konum):
         

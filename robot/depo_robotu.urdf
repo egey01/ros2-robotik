@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<robot name="depo_robotu">
+
+  <!-- GÖVDE -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.6 0.4 0.2"/>
+      </geometry>
+      <material name="mavi">
+        <color rgba="0.2 0.4 0.8 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- SOL TEKERLEK: parçanın kendisi -->
+  <link name="sol_tekerlek">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+      <material name="siyah">
+        <color rgba="0.1 0.1 0.1 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="sol_tekerlek_eklemi" type="continuous">
+    <parent link="base_link"/>
+    <child link="sol_tekerlek"/>
+    <origin xyz="0 0.225 -0.05"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <!-- SAĞ TEKERLEK: gövdeye nasıl takıldığı -->
+  <link name="sag_tekerlek">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+      <material name="siyah">
+        <color rgba="0.1 0.1 0.1 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- SAĞ TEKERLEK: gövdeye nasıl takıldığı -->
+  <joint name="sag_tekerlek_eklemi" type="continuous">
+    <parent link="base_link"/>
+    <child link="sag_tekerlek"/>
+    <origin xyz="0 -0.225 -0.05"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+  
+  <link name="sarhos_teker">
+    <visual>
+      <geometry>
+        <sphere radius="0.05"/>
+      </geometry>
+          <material name="gri">
+            <color rgba="0.5 0.5 0.5 1.0"/>
+          </material>
+      </visual>
+  </link>
+  <joint name="sarhos_teker_eklemi" type="fixed">
+    <parent link="base_link"/>
+    <child link="sarhos_teker"/>  
+    <origin xyz="-0.25 0 -0.1"/>
+
+    
+  </joint>
+</robot>
