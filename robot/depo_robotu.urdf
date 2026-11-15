@@ -117,4 +117,19 @@
 
     
   </joint>
+  <gazebo>
+    <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+      <left_joint>sol_tekerlek_eklemi</left_joint>
+      <right_joint>sag_tekerlek_eklemi</right_joint>
+      <wheel_separation>0.45</wheel_separation>
+      <wheel_radius>0.1</wheel_radius>
+      <topic>/cmd_vel</topic>
+    </plugin>
+  </gazebo>
+
+  <!-- SARHOŞ TEKER: sürtünmesiz olsun ki robotu frenlemesin -->
+  <gazebo reference="sarhos_teker">
+    <mu1>0.0</mu1>
+    <mu2>0.0</mu2>
+  </gazebo>
 </robot>
