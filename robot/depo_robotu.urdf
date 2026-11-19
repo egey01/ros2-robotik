@@ -124,6 +124,7 @@
       <wheel_separation>0.45</wheel_separation>
       <wheel_radius>0.1</wheel_radius>
       <topic>/cmd_vel</topic>
+      <odom_topic>/odom</odom_topic>
     </plugin>
   </gazebo>
 
